@@ -1,13 +1,7 @@
--- SCRIPT PRINCIPAL DO DESAFIO
-
--- PARTE 1 - TRANSACOES
--- Banco: ecommerce
-
 USE ecommerce;
 
 SET autocommit = 0;
 
--- Transacao com COMMIT
 START TRANSACTION;
 
 SELECT id, nome, estoque
@@ -24,8 +18,6 @@ SELECT id, nome, estoque
 FROM produtos
 WHERE id = 1;
 
-
--- Teste de ROLLBACK
 START TRANSACTION;
 
 UPDATE produtos
@@ -42,8 +34,6 @@ SELECT id, nome, estoque
 FROM produtos
 WHERE id = 1;
 
-
--- Teste de SAVEPOINT
 START TRANSACTION;
 
 UPDATE produtos
@@ -61,10 +51,6 @@ ROLLBACK TO SAVEPOINT estoque_atualizado;
 COMMIT;
 
 SET autocommit = 1;
-
-
--- PARTE 2 - TRANSACAO COM PROCEDURE
--- Banco: ecommerce
 
 USE ecommerce;
 
@@ -117,10 +103,6 @@ BEGIN
 END $$
 
 DELIMITER ;
-
--- Exemplos de execucao:
--- CALL realizar_venda(1, 2);
--- CALL realizar_venda(1, 9999);
 
 -- Conferencia:
 -- SELECT id, nome, estoque FROM produtos WHERE id = 1;
