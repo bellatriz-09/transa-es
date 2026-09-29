@@ -1,11 +1,7 @@
--- PARTE 1 - TRANSACOES
--- Banco: ecommerce
-
 USE ecommerce;
 
 SET autocommit = 0;
 
--- Transacao com COMMIT
 START TRANSACTION;
 
 SELECT id, nome, estoque
@@ -22,8 +18,6 @@ SELECT id, nome, estoque
 FROM produtos
 WHERE id = 1;
 
-
--- Teste de ROLLBACK
 START TRANSACTION;
 
 UPDATE produtos
@@ -40,8 +34,6 @@ SELECT id, nome, estoque
 FROM produtos
 WHERE id = 1;
 
-
--- Teste de SAVEPOINT
 START TRANSACTION;
 
 UPDATE produtos
