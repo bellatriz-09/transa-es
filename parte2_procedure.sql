@@ -1,6 +1,3 @@
--- PARTE 2 - TRANSACAO COM PROCEDURE
--- Banco: ecommerce
-
 USE ecommerce;
 
 DELIMITER $$
@@ -52,10 +49,6 @@ BEGIN
 END $$
 
 DELIMITER ;
-
--- Exemplos de execucao:
--- CALL realizar_venda(1, 2);
--- CALL realizar_venda(1, 9999);
 
 -- Conferencia:
 -- SELECT id, nome, estoque FROM produtos WHERE id = 1;
